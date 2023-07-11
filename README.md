@@ -1,2 +1,2 @@
 # flask-project
-A career website for Jovian
+A career website
