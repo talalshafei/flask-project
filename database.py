@@ -17,3 +17,10 @@ def load_jobs():
         for row in result.all():
             jobs.append(row._mapping)
         return jobs
+
+def load_job(id):
+    with engine.connect() as conn:
+        result = conn.execute(text("select * from jobs where id = :val"), {'val':id})
+        rows = result.all()
+        if len(rows) < 1: return None
+        return dict(rows[0]._mapping)
